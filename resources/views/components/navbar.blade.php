@@ -5,8 +5,15 @@
             <div class="flex items-center gap-5">
                 <a href="{{ route('homepage') }}" class="text-xl font-bold text-gray-900">Biblioteca</a>
                 @auth
-                    <a href="" class="text-gray-700 hover:text-gray-900 mt-0.5">Catalogo</a>
-                    <a href="" class="text-gray-700 hover:text-gray-900 mt-0.5">Prenotazioni</a>
+                    @if (Auth::user()->isAdmin())
+                        <a href="" class="text-gray-700 hover:text-gray-900 mt-0.5">Aggiungi libro</a>
+                        <a href="" class="text-gray-700 hover:text-gray-900 mt-0.5">Visualizza prenotazioni</a>
+                        <a href="" class="text-gray-700 hover:text-gray-900 mt-0.5">Elenco utenti</a>
+                        <a href="" class="text-gray-700 hover:text-gray-900 mt-0.5">Carica copie</a>
+                    @else
+                        <a href="" class="text-gray-700 hover:text-gray-900 mt-0.5">Catalogo Libri</a>
+                        <a href="" class="text-gray-700 hover:text-gray-900 mt-0.5">Prenotazioni</a>
+                    @endif
                 @endauth
             </div>
 
