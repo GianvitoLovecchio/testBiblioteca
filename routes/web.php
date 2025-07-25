@@ -12,4 +12,7 @@ Route::get('/user/profile', [UserController::class, 'profile'])->name('user.prof
 
 //rotta alla vista per la creazione di un libro
 Route::get('book/create', [BookController::class, 'create'])->name('book.create')->middleware('auth');
-
+//rotta per il catalogo dei libri
+Route::get('book/index', [BookController::class, 'index'])->name('book.index');
+//rotta per dettaglio libro
+Route::get('book/{book}', [BookController::class, 'show'])->name('book.show');

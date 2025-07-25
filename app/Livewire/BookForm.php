@@ -55,7 +55,7 @@ class BookForm extends Component
         //genera il nome dell'immagine "cover_image_titolo_del_libro.estensione" e la salva nella cartella covers in public
         if ($this->cover_image) {
             $filename = 'cover_image_' . Str::slug($this->title) . '.' . $this->cover_image->getClientOriginalExtension();
-            $path = $this->cover_image->storeAs('covers', $filename, 'public');
+            $path = $this->cover_image->storeAs(Str::slug($this->title), $filename, 'public');
         } else {
             $path = null;
         }

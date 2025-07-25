@@ -7,11 +7,12 @@
                 @auth
                     @if (auth()->user()->is_admin)
                         <a href="{{route('book.create')}}" class="text-gray-700 hover:text-gray-900 mt-0.5">Aggiungi libro</a>
+                        <a href="" class="text-gray-700 hover:text-gray-900 mt-0.5">Carica copie</a>
+                        <a href="{{route('book.index')}}" class="text-gray-700 hover:text-gray-900 mt-0.5">Catalogo</a>
                         <a href="" class="text-gray-700 hover:text-gray-900 mt-0.5">Visualizza prenotazioni</a>
                         <a href="" class="text-gray-700 hover:text-gray-900 mt-0.5">Elenco utenti</a>
-                        <a href="" class="text-gray-700 hover:text-gray-900 mt-0.5">Carica copie</a>
                     @else
-                        <a href="" class="text-gray-700 hover:text-gray-900 mt-0.5">Catalogo Libri</a>
+                        <a href="" class="text-gray-700 hover:text-gray-900 mt-0.5">Catalogo</a>
                         <a href="" class="text-gray-700 hover:text-gray-900 mt-0.5">Prenotazioni</a>
                     @endif
                 @endauth
