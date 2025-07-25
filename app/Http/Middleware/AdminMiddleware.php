@@ -17,9 +17,9 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::check() && Auth::user()->is_admin === true) {
-            return $next($request);
+        if (Auth::check() && Auth::user()->is_admin ==! true) {
+            return redirect('homepage')->with('error', 'Accesso negato, non sei un ristoratore.');
         }
-        abort(403);
+        return $next($request);
     }
 }
