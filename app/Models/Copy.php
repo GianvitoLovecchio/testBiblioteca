@@ -10,6 +10,7 @@ class Copy extends Model
         'book_id',
         'status',
         'barcode',
+        'condition',
     ];
 
     public function book()
