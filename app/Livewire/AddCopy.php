@@ -16,6 +16,10 @@ class AddCopy extends Component
     public $barcode;
     #[Validate('required', message: 'Selezionare la condizione del libro')]
     public $condition;
+    #[Validate('min:8', message: 'Testo troppo corto')]
+    #[Validate('max:150', message: 'Testo troppo lungo')]
+    #[Validate('nullable')]
+    public $notes;
 
     public function generateUniqueBarcode(): string
     {
@@ -42,6 +46,7 @@ class AddCopy extends Component
             'barcode' => $this->barcode,
             'condition' => $this->condition,
             'status' => 'disponibile', // O un valore di default, se richiesto
+            'notes' => $this->notes ? $this->notes : null,
         ]);
 
         Book::find($this->book_id)->increment('available_copies');

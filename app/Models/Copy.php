@@ -11,6 +11,7 @@ class Copy extends Model
         'status',
         'barcode',
         'condition',
+        'notes'
     ];
 
     public function book()

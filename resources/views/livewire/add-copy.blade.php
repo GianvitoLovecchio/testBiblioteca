@@ -6,7 +6,7 @@
         @endphp
         <div class="mb-8">
             <label for="barcode" class="block text-sm font-medium text-gray-700">Codice a barre</label>
-            <input type="text" wire:model="barcode" id="barcode" readonly 
+            <input type="text" wire:model="barcode" id="barcode" readonly
                 class="px-2 py-1 mt-1 block w-full bg-gray-100 border-gray-300 rounded shadow-sm focus:ring-blue-500 focus:border-blue-500" />
         </div>
 
@@ -41,6 +41,16 @@
                 <span class="text-red-500 text-sm">{{ $message }}</span>
             @enderror
         </div>
+
+        {{-- Note --}}
+        <div class="mb-8">
+            <label for="notes" class="block text-sm font-medium text-gray-700">Note (opzionali)</label>
+            <textarea wire:model="notes" id="notes" rows="3"
+                class="px-2 py-1 mt-1 block w-full border-gray-300 rounded shadow-sm focus:ring-blue-500 focus:border-blue-500"></textarea>
+        </div>
+        @error('notes')
+            <span class="text-red-500 text-sm">{{ $message }}</span>
+        @enderror
 
         {{-- Submit --}}
         <div class="text-right">
