@@ -40,7 +40,7 @@
                         </div>
                     @else
                         <div class="hidden md:flex items-center gap-4">
-                            <a href="#" class="nav-link">Catalogo</a>
+                            <a href="{{ route('book.index') }}" class="nav-link">Catalogo</a>
                             <a href="#" class="nav-link">Prenotazioni</a>
                         </div>
                     @endif
@@ -89,7 +89,7 @@
                 <a href="{{ route('search')}}" class="block nav-link">Ricerca Testuale</a>
                 <a href="" class="block nav-link">Ricerca per filtri</a>
             @else
-                <a href="#" class="block nav-link">Catalogo</a>
+                <a href="{{ route('book.index') }}" class="block nav-link">Catalogo</a>
                 <a href="#" class="block nav-link">Prenotazioni</a>
             @endif
         @endauth

@@ -18,6 +18,9 @@
             <div>
                 <p>Stato: <span class="text-gray-600">{{ $copy->status }}</span></p>
                 <p>Condizione: <span class="text-gray-600">{{ $copy->condition }}</span></p>
+                <p>Copie totali: <span class="text-gray-600">{{ $book->available_copies }}</span></p>
+                <p>Copie prenotate: <span class="text-gray-600">{{ $book->copies->where('status', 'prenotato')->count() }}</span></p>
+                <p>Copie disponibili: <span class="text-gray-600">{{ $book->copies->where('status', 'disponibile')->count() }}</span></p>
             </div>
         @elseif(Auth::check() && !Auth::user()->is_admin)
             <div>
@@ -25,11 +28,13 @@
             </div>
         @endif
     </div>
-    <div class="flex justify-center items-center my-3">
+    <div class='flex mb-6 {{Auth::check() && Auth::user()->is_admin ? 'justify-end mr-4' : 'justify-evenly'}} items-center my-3'>
         <a href="{{ route('book.show', $book->id) }}"
-            class="text-center bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors">
+            class="text-center bg-blue-500 text-white py-1.5 px-3 rounded hover:bg-blue-600 transition-colors">
             Visualizza
         </a>
+        <a href="{{route('reservation.view', compact('book'))}}" class="cursor-pointer text-center bg-blue-500 text-white py-1.5 px-3 rounded hover:bg-blue-600 transition-colors">
+            Prenota copia
+        </a>
     </div>
-
 </div>

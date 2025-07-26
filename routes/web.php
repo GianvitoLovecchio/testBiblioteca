@@ -6,6 +6,7 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\CopyController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PublicController;
+use App\Http\Controllers\ReservationController;
 
 Route::get('/', [PublicController::class, 'homepage'])->name('homepage');
 
@@ -27,3 +28,8 @@ Route::get('search/filters', [PublicController::class, 'searchFilters'])->name('
 
 //rotta visualizzazione aggiunta copie
 Route::get('copy/add', [CopyController::class, 'addCopy'])->name('copy.add')->middleware('auth', 'admin');
+
+//rotta vista di prenotzzione
+Route::get('copy/reservation/{book}', [ReservationController::class, 'reservation'])->name('reservation.view')->middleware('auth');
+//rotta per l'invio della prenotazione
+Route::post('copy/reservation/store', [ReservationController::class, 'store'])->name('reservation.store')->middleware('auth');
