@@ -33,3 +33,5 @@ Route::get('copy/add', [CopyController::class, 'addCopy'])->name('copy.add')->mi
 Route::get('copy/reservation/{book}', [ReservationController::class, 'reservation'])->name('reservation.view')->middleware('auth');
 //rotta per l'invio della prenotazione
 Route::post('copy/reservation/store', [ReservationController::class, 'store'])->name('reservation.store')->middleware('auth');
+//rotta per mostrare tutte le prenotazioni
+Route::get('reservation/index', [ReservationController::class, 'index'])->name('reservation.index')->middleware('auth', 'admin');

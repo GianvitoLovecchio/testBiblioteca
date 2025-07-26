@@ -45,4 +45,10 @@ class ReservationController extends Controller
 
         return redirect()->route('book.index')->with('success', 'Prenotazione effettuata con successo.');
     }
+
+    public function index()
+    {
+        $reservations = Reservation::with('user', 'copy.book')->orderBy('reserved_at', 'desc')->get();
+        return view('reservation.index', ['reservations' => $reservations]);
+    }
 }

@@ -12,8 +12,8 @@
                             <a href="{{ route('book.create') }}" class="nav-link">Aggiungi libro</a>
                             <a href="{{ route('copy.add') }}" class="nav-link">Carica copie</a>
                             <a href="{{ route('book.index') }}" class="nav-link">Catalogo</a>
-                            <a href="#" class="nav-link">Visualizza prenotazioni</a>
-                            <a href="{{ route('user.index') }}" class="nav-link">Elenco utenti</a>
+                            <a href="{{ route('reservation.index') }}" class="nav-link">Prenotazioni</a>
+                            <a href="{{ route('user.index') }}" class="nav-link">Utenti</a>
 
                             <!-- Dropdown Ricerca -->
                             <div class="relative">
@@ -55,7 +55,7 @@
                     </a>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
-                        <button type="submit" class="text-gray-700 hover:text-red-600">
+                        <button type="submit" class="cursor-pointer text-gray-700 hover:text-red-600">
                             <i class="fa-solid fa-right-from-bracket text-red-600 text-2xl"></i>
                         </button>
                     </form>
