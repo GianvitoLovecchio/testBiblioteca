@@ -14,4 +14,9 @@ class CopyController extends Controller
         // return view('copy.add');
     }
 
+    public function index()
+    {
+        return view('copy.index');
+    }
+
 }

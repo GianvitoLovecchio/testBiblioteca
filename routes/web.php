@@ -28,6 +28,8 @@ Route::get('search/filters', [PublicController::class, 'searchFilters'])->name('
 
 //rotta visualizzazione aggiunta copie
 Route::get('copy/add', [CopyController::class, 'addCopy'])->name('copy.add')->middleware('auth', 'admin');
+//rotta visualizzazione copie CON FILTRI PER UTENTI NON ADMIN
+Route::get('copy/index', [CopyController::class, 'index'])->name('copy.index')->middleware('auth');
 
 //rotta vista di prenotzzione
 Route::get('copy/reservation/{book}', [ReservationController::class, 'reservation'])->name('reservation.view')->middleware('auth');

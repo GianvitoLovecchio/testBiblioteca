@@ -7,7 +7,7 @@ use App\Models\Copy;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class BookSearchFilter extends Component
+class UserFilterIndex extends Component
 {
     use WithPagination;
 

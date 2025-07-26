@@ -17,7 +17,7 @@
                     <tr class="border-b hover:bg-gray-50 transition duration-150">
                         <td class="px-4 sm:px-6 py-4 whitespace-nowrap">{{ $reservation->copy->book->title }}</td>
                         <td class="px-4 sm:px-6 py-4 whitespace-nowrap">{{ $reservation->user->name }}</td>
-                        <td class="px-4 sm:px-6 py-4 whitespace-nowrap">{{ $reservation->created_at->format('d/m/Y') }}</td>
+                        <td class="px-4 sm:px-6 py-4 whitespace-nowrap">{{ $reservation->created_at->format('d/m/Y') }} - {{ $reservation->created_at->format('H:i') }}</td>
                         <td class="px-4 sm:px-6 py-4 whitespace-nowrap capitalize font-bold 
                             {{ $reservation->copy->condition === 'ottimo' ? 'text-green-500' : 
                                ($reservation->copy->condition === 'buono' ? 'text-yellow-500' : 'text-red-500') }}">

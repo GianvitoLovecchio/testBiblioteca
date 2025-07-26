@@ -32,7 +32,7 @@
                                             Testuale</a>
                                     </li>
                                     <li class="p-2">
-                                        <a href="{{ route('search.filters')}}" class="dropdown-link ">Ricerca
+                                        <a href="{{ route('copy.index')}}" class="dropdown-link ">Ricerca
                                             per filtri</a>
                                     </li>
                                 </ul>
@@ -40,8 +40,8 @@
                         </div>
                     @else
                         <div class="hidden md:flex items-center gap-4">
-                            <a href="{{ route('book.index') }}" class="nav-link">Catalogo</a>
-                            <a href="#" class="nav-link">Prenotazioni</a>
+                            <a href="{{ route('book.index') }}" class="nav-link">Catalogo titoli</a>
+                            <a href="{{ route('copy.index') }}" class="nav-link">Catalogo copie</a>
                         </div>
                     @endif
                 @endauth
@@ -103,29 +103,33 @@
 
 <!-- Script -->
 <script>
-    // Mobile menu toggle
-    const btn = document.getElementById('menu-btn');
-    const menu = document.getElementById('mobile-menu');
-    btn.addEventListener('click', () => {
-        menu.classList.toggle('hidden');
-    });
+    document.addEventListener('DOMContentLoaded', function () {
+        const btn = document.getElementById('menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const dropdownBtn = document.getElementById('dropdownButton');
+        const dropdownMenu = document.getElementById('dropdownMenu');
 
-    // Dropdown toggle
-    const dropdownBtn = document.getElementById('dropdownButton');
-    const dropdownMenu = document.getElementById('dropdownMenu');
+        if (btn && menu) {
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+        }
 
-    dropdownBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        dropdownMenu.classList.toggle('hidden');
-    });
+        if (dropdownBtn && dropdownMenu) {
+            dropdownBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                dropdownMenu.classList.toggle('hidden');
+            });
 
-    // Close dropdown clicking outside
-    window.addEventListener('click', function(e) {
-        if (!dropdownBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
-            dropdownMenu.classList.add('hidden');
+            window.addEventListener('click', function (e) {
+                if (!dropdownBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+                    dropdownMenu.classList.add('hidden');
+                }
+            });
         }
     });
 </script>
+
 
 <!-- Tailwind Utility Styles -->
 <style>

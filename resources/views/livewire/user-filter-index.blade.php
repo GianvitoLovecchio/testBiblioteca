@@ -25,6 +25,19 @@
             </select>
         </div>
 
+        <!-- Stato -->
+        @if (Auth::check() && Auth::user()->is_admin)
+        <div>
+            <label for="status" class="block text-sm font-medium text-gray-700">Stato</label>
+            <select id="status" wire:model.defer="tempStatus"
+                class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                <option value="">Tutti</option>
+                <option value="disponibile">Disponibile</option>
+                <option value="prenotato">Prenotato</option>
+            </select>
+        </div>
+        @endif
+
         <!-- Bottone Applica -->
         <div>
             <button wire:click="applyFilters"
@@ -38,7 +51,7 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         @forelse ($copies as $copy)
             @php
-                $borderColor = $copy->status === 'disponibile' ? 'border-blue-500' : 'border-green-500';
+                $borderColor = $copy->status === 'disponibile' ? 'border-green-500' : 'border-red-500';
                 $textColor = $copy->status === 'disponibile' ? 'text-green-600' : 'text-red-600';
             @endphp
             <div
@@ -50,7 +63,7 @@
                     <p class="text-sm text-gray-600">Categoria: {{ $copy->book->category->name }}</p>
                     <p class="text-sm text-gray-600">Anno:
                         {{ \Illuminate\Support\Carbon::parse($copy->book->published_at)->format('Y') }}</p>
-                    <p class="text-sm text-gray-600">Stato: ù
+                    <p class="text-sm text-gray-600">Stato:
                         <span class='font-bold {{ $textColor }}'>{{ $copy->status }}</span>
                     </p>
                     <p class="text-sm text-gray-600">Condizioni: {{ $copy->condition }}</p>
