@@ -28,7 +28,7 @@ Route::get('search/filters', [PublicController::class, 'searchFilters'])->name('
 
 //rotta visualizzazione aggiunta copie
 Route::get('copy/add', [CopyController::class, 'addCopy'])->name('copy.add')->middleware('auth', 'admin');
-//rotta visualizzazione copie CON FILTRI PER UTENTI NON ADMIN
+//rotta visualizzazione copie 
 Route::get('copy/index', [CopyController::class, 'index'])->name('copy.index')->middleware('auth');
 
 //rotta vista di prenotzzione
