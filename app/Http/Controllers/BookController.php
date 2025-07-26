@@ -22,4 +22,5 @@ class BookController extends Controller
     {
         return view('book.show', compact('book'));
     }
+
 }

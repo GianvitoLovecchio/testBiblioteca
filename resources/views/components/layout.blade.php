@@ -4,9 +4,6 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Trippa Advisor - recensioni sui ristoranti">
-    <meta name="keywords" content="ristoranti, recensioni, trippa advisor">
-    <meta name="author" content="noi">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -20,6 +17,9 @@
     <title>Biblioteca</title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    {{-- Stili di Livewire: è buona pratica includerli nell'head. --}}
+    @livewireStyles
 </head>
 
 <body class="font-sans bg-gray-100 text-gray-900">
@@ -30,6 +30,10 @@
 
     {{-- FontAwesome Icons --}}
     <script src="https://kit.fontawesome.com/141c05eb74.js" crossorigin="anonymous"></script>
+
+    {{-- Script di Livewire: devono essere inclusi prima della chiusura del </body> tag. --}}
+    @livewireScripts
+    
 
 </body>
 

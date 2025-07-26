@@ -10,4 +10,14 @@ class PublicController extends Controller
     {
         return view('homepage');
     }
+
+    public function search()
+    {
+        return view('search');
+    }
+
+    public function searchFilters()
+    {
+        return view('searchFilters');
+    }
 }

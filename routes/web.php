@@ -10,6 +10,8 @@ use App\Http\Controllers\PublicController;
 Route::get('/', [PublicController::class, 'homepage'])->name('homepage');
 
 Route::get('/user/profile', [UserController::class, 'profile'])->name('user.profile')->middleware('auth');
+//rotta visualizzazione utenti
+Route::get('user/index', [UserController::class, 'index'])->name('user.index')->middleware('auth', 'admin');
 
 //rotta alla vista per la creazione di un libro
 Route::get('book/create', [BookController::class, 'create'])->name('book.create')->middleware('auth', 'admin');
@@ -18,7 +20,10 @@ Route::get('book/index', [BookController::class, 'index'])->name('book.index');
 //rotta per dettaglio libro
 Route::get('book/{book}', [BookController::class, 'show'])->name('book.show');
 
+//pagina ricerca testuale
+Route::get('/search', [PublicController::class, 'search'])->name('search');
+//rotta ricerca filtri
+Route::get('search/filters', [PublicController::class, 'searchFilters'])->name('search.filters');
+
 //rotta visualizzazione aggiunta copie
 Route::get('copy/add', [CopyController::class, 'addCopy'])->name('copy.add')->middleware('auth', 'admin');
-// rotta invio copie
-Route::post('copy/store', [CopyController::class, 'store'])->name('book.storeCopy')->middleware('auth', 'admin');

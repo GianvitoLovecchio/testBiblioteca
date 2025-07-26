@@ -45,7 +45,7 @@ class AddCopy extends Component
             'book_id' => $this->book_id,
             'barcode' => $this->barcode,
             'condition' => $this->condition,
-            'status' => 'disponibile', // O un valore di default, se richiesto
+            'status' => 'disponibile', // 
             'notes' => $this->notes ? $this->notes : null,
         ]);
 
