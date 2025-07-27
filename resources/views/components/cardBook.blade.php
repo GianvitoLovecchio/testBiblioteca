@@ -1,7 +1,7 @@
 <div
-    class="md:w-[300px] mx-auto md:justify-between bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+    class="w-[300px] mx-auto md:justify-between bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
     <img src="{{ asset('storage/' . $book->cover_image) }}" alt="Copertina di {{ $book->title }}"
-        class="md:w-[200px] md:h-[250px] md:mx-auto md:mt-5 object-cover">
+        class="w-[200px] h-[250px] mx-auto mt-5 object-cover">
     <span class="inline-block bg-blue-100 text-blue-800 my-3 ms-4 text-xs px-2 py-1 rounded">
         {{ $book->category->name }}
     </span>
@@ -35,15 +35,15 @@
     </div>
     <div
         class='flex mb-6 {{ Auth::check() && Auth::user()->is_admin ? 'justify-end mr-4' : 'justify-evenly' }} items-center my-3'>
-        <a href="{{ route('book.show', $book->id) }}"
-            class="text-center bg-blue-500 text-white py-1.5 px-3 rounded hover:bg-blue-600 transition-colors">
-            Visualizza
-        </a>
         @if (Auth::check() && !Auth::user()->is_admin)
             <a href="{{ route('reservation.view', compact('book')) }}"
                 class="cursor-pointer text-center bg-blue-500 text-white py-1.5 px-3 rounded hover:bg-blue-600 transition-colors">
                 Prenota copia
             </a>
         @endif
+        <a href="{{ route('book.show', $book->id) }}"
+            class="text-center bg-green-500 text-white py-1.5 px-3 rounded hover:bg-green-600 transition-colors">
+            Visualizza
+        </a>
     </div>
 </div>

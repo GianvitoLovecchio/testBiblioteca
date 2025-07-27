@@ -1,8 +1,8 @@
-<div class="mx-auto p-6 mt-4">
-    <div class="flex items-center justify-evenly">
+<div class="mx-auto md:p-6 mt-4">
+    <div class="md:flex items-center justify-evenly">
         <h2 class="text-2xl"> Ricerca per parola chiave:</h2>
         <input type="text" wire:model.live="search" placeholder="Cerca per titolo, autore, ISBN o descrizione..."
-            class="md:w-[400px] border rounded p-2 bg-white">
+            class="md:w-[400px] w-full border rounded my-5 md:my-0 p-2 bg-white">
     </div>
     @if ($copies->isEmpty())
         <p class="text-gray-500 my-3">Nessun libro trovato per "{{ $search }}"</p>

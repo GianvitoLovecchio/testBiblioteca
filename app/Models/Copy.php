@@ -18,4 +18,9 @@ class Copy extends Model
     {
         return $this->belongsTo(Book::class);
     }
+    public function reservations()
+    {
+        return $this->hasMany(Reservation::class);
+    }
 }
+

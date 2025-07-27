@@ -14,7 +14,7 @@
                             <a href="{{ route('book.index') }}" class="nav-link">Catalogo</a>
                             <a href="{{ route('reservation.index') }}" class="nav-link">Prenotazioni</a>
                             <a href="{{ route('user.index') }}" class="nav-link">Utenti</a>
-                            <a href="{{ route('category.index')}}" class="nav-link">Gestione categorie</a>
+                            <a href="{{ route('category.index') }}" class="nav-link">Gestione categorie</a>
 
                             <!-- Dropdown Ricerca -->
                             <div class="relative">
@@ -29,11 +29,11 @@
                                 <ul id="dropdownMenu"
                                     class="absolute mt-2 w-48 bg-white border border-gray-200 rounded shadow-lg hidden z-20">
                                     <li class="p-2">
-                                        <a href="{{ route('search')}}" class="dropdown-link ">Ricerca
+                                        <a href="{{ route('search') }}" class="dropdown-link ">Ricerca
                                             Testuale</a>
                                     </li>
                                     <li class="p-2">
-                                        <a href="{{ route('copy.index')}}" class="dropdown-link ">Ricerca
+                                        <a href="{{ route('copy.index') }}" class="dropdown-link ">Ricerca
                                             per filtri</a>
                                     </li>
                                 </ul>
@@ -85,13 +85,14 @@
                 <a href="{{ route('book.create') }}" class="block nav-link">Aggiungi libro</a>
                 <a href="{{ route('copy.add') }}" class="block nav-link">Carica copie</a>
                 <a href="{{ route('book.index') }}" class="block nav-link">Catalogo</a>
-                <a href="{{ route('reservation.index') }}" class="block nav-link">Visualizza prenotazioni</a>
+                <a href="{{ route('reservation.index') }}" class="block nav-link">Elenco prenotazioni</a>
                 <a href="{{ route('user.index') }}" class="block nav-link">Elenco utenti</a>
-                <a href="{{ route('search')}}" class="block nav-link">Ricerca Testuale</a>
-                <a href="{{ route('copy.index')}}" class="block nav-link">Ricerca per filtri</a>
+                <a href="{{ route('search') }}" class="block nav-link">Ricerca Testuale</a>
+                <a href="{{ route('copy.index') }}" class="block nav-link">Ricerca per filtri</a>
             @else
-                <a href="{{ route('book.index') }}" class="block nav-link">Catalogo</a>
-                <a href="#" class="block nav-link">Prenotazioni</a>
+                <a href="{{ route('book.index') }}" class="block nav-link">Catalogo titoli</a>
+                <a href="{{ route('copy.index') }}" class="block nav-link">Catalogo copie</a>
+                <a href="{{ route('search') }}" class="block nav-link">Ricerca Testuale</a>
             @endif
         @endauth
 
@@ -104,7 +105,7 @@
 
 <!-- Script -->
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
         const btn = document.getElementById('menu-btn');
         const menu = document.getElementById('mobile-menu');
         const dropdownBtn = document.getElementById('dropdownButton');
@@ -122,7 +123,7 @@
                 dropdownMenu.classList.toggle('hidden');
             });
 
-            window.addEventListener('click', function (e) {
+            window.addEventListener('click', function(e) {
                 if (!dropdownBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
                     dropdownMenu.classList.add('hidden');
                 }

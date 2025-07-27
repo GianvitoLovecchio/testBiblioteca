@@ -25,7 +25,7 @@
                             {{ $reservation->copy->condition }}
                         </td>
                         <td class="px-4 sm:px-6 py-4 whitespace-nowrap">{{ $reservation->copy->barcode }}</td>
-                        <td class="px-4 sm:px-6 py-4  break-words md:max-w-[150px]">
+                        <td class="px-4 sm:px-6 py-4 break-words md:max-w-[150px] whitespace-normal">
                             @if ($reservation->copy->notes)
                             <span class="text-gray-500 italic text-xs">{{ $reservation->copy->notes }}</span>
                             @else
