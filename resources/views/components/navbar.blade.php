@@ -14,6 +14,7 @@
                             <a href="{{ route('book.index') }}" class="nav-link">Catalogo</a>
                             <a href="{{ route('reservation.index') }}" class="nav-link">Prenotazioni</a>
                             <a href="{{ route('user.index') }}" class="nav-link">Utenti</a>
+                            <a href="{{ route('category.index')}}" class="nav-link">Gestione categorie</a>
 
                             <!-- Dropdown Ricerca -->
                             <div class="relative">

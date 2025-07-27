@@ -1,6 +1,6 @@
 <div class="px-4">
     <!-- Filtri -->
-    <div class="bg-white shadow-lg rounded-lg py-8 flex flex-col sm:flex-row sm:items-end justify-evenly gap-4 mb-6">
+    <div class="ps-7 md:ps-0 bg-white shadow-lg rounded-lg py-8 flex flex-col sm:flex-row sm:items-end justify-evenly gap-4 mb-6">
         <!-- Categoria -->
         <div>
             <label for="category" class="block text-sm font-medium text-gray-700">Categoria</label>
@@ -41,7 +41,7 @@
         <!-- Bottone Applica -->
         <div>
             <button wire:click="applyFilters"
-                class="inline-flex items-center px-4 py-2 cursor-pointer border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none">
+                class="block mx-auto md:mx-0 md:inline-flex items-center px-4 py-2 cursor-pointer border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none">
                 Applica filtri
             </button>
         </div>

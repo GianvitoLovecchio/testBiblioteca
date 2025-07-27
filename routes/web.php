@@ -6,6 +6,7 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\CopyController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PublicController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ReservationController;
 
 Route::get('/', [PublicController::class, 'homepage'])->name('homepage');
@@ -41,3 +42,14 @@ Route::get('copy/reservation/{book}', [ReservationController::class, 'reservatio
 Route::post('copy/reservation/store', [ReservationController::class, 'store'])->name('reservation.store')->middleware('auth');
 //rotta per mostrare tutte le prenotazioni
 Route::get('reservation/index', [ReservationController::class, 'index'])->name('reservation.index')->middleware('auth', 'admin');
+
+//rotta alla pagina di gestione categorie
+Route::get('category/index', [CategoryController::class, 'index'])->name('category.index')->middleware('auth', 'admin');
+//rotta per la creazione di una nuova categoria
+Route::post('category/store', [CategoryController::class, 'store'])->name('category.store')->middleware('auth', 'admin');
+//rotta per la cancellazione di una categoria
+Route::delete('category/delete/{id}', [CategoryController::class, 'destroy'])->name('category.destroy')->middleware('auth', 'admin');
+//rotta per la visualizzazione della pagina di modifica di una categoria
+Route::get('category/edit/{id}', [CategoryController::class, 'edit'])->name('category.edit')->middleware('auth', 'admin');
+//rotta per l'invio della modifica di una categoria
+Route::put('category/update/{category}', [CategoryController::class, 'update'])->name('category.update')->middleware('auth', 'admin');

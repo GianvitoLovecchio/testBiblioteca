@@ -10,6 +10,7 @@
                     <th class="px-4 sm:px-6 py-3">Data</th>
                     <th class="px-4 sm:px-6 py-3">Condizione</th>
                     <th class="px-4 sm:px-6 py-3">Barcode</th>
+                    <th class="px-4 sm:px-6 py-3">Note</th>
                 </tr>
             </thead>
             <tbody class="text-gray-600">
@@ -24,7 +25,13 @@
                             {{ $reservation->copy->condition }}
                         </td>
                         <td class="px-4 sm:px-6 py-4 whitespace-nowrap">{{ $reservation->copy->barcode }}</td>
-                    </tr>
+                        <td class="px-4 sm:px-6 py-4  break-words md:max-w-[150px]">
+                            @if ($reservation->copy->notes)
+                            <span class="text-gray-500 italic text-xs">{{ $reservation->copy->notes }}</span>
+                            @else
+                            <span class="text-gray-400">Nessuna nota</span>
+                            @endif
+                        </tr>
                 @empty
                     <tr>
                         <td colspan="5" class="text-center text-gray-500 px-4 py-4">Nessuna prenotazione trovata.</td>
