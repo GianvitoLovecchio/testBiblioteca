@@ -20,6 +20,7 @@ class ReservationController extends Controller
         return view('reservation.reservation', ['book' => $book, 'copy' => $copy]);
     }
 
+
     public function store(Request $request)
     {
         $copy = Copy::findOrFail($request->copy_id);

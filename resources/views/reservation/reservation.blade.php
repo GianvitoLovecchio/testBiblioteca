@@ -1,11 +1,19 @@
 <x-layout>
     <h1 class="text-4xl text-center mt-5 mb-10">Conferma prenotazione</h1>
 
-    <h2 class="text-xl ml-15">
-        In base alla nostra politica di prenotazione, ti mostriamo di seguito la miglior copia disponibile del
-        libro:
-        <span class="font-semibold italic text-2xl"> "{{ $book->title }}"</span>
-    </h2>
+    @if (Route::currentRouteName() === 'reservation.view')
+        <p class="text-center text-gray-600 mb-5">Seleziona una copia disponibile per il libro: <span
+                class="font-semibold italic text-2xl"> "{{ $book->title }}"</span></p>
+        <h2 class="text-xl ml-15">
+            In base alla nostra politica di prenotazione, ti mostriamo di seguito la miglior copia disponibile del
+            libro:
+            <span class="font-semibold italic text-2xl"> "{{ $book->title }}"</span>
+        </h2>
+    @elseif(Route::currentRouteName() === 'reservation.selected')
+        <p class="text-center text-gray-600 mb-5">Eccola copia che hai selezionato per il libro: 
+            {{-- <span class="font-semibold italic text-2xl"> "{{ $book->title }}"</span> --}}
+            </p>
+    @endif
     <div class="flex justify-center p-5 mt-5">
         <div class="w-1/3 mx-auto bg-white rounded-lg shadow-md p-5 ">
             <h3 class="mb-5 text-center italic">Dettagli della copia</h3>
@@ -15,7 +23,7 @@
         </div>
     </div>
     <div class="w-2/3 mx-auto flex justify-around items-center mt-5">
-        <a href="{{ route('book.index') }}"
+        <a href="{{ Route::currentRouteName() === 'reservation.selected' ? route('copy.index') : route('book.index') }}"
             class="cursor-pointer bg-gray-500 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded">
             Torna al catalogo
         </a>

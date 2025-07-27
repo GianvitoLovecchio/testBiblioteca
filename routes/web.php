@@ -26,10 +26,14 @@ Route::get('/search', [PublicController::class, 'search'])->name('search');
 //rotta ricerca filtri
 Route::get('search/filters', [PublicController::class, 'searchFilters'])->name('search.filters');
 
+
 //rotta visualizzazione aggiunta copie
 Route::get('copy/add', [CopyController::class, 'addCopy'])->name('copy.add')->middleware('auth', 'admin');
 //rotta visualizzazione copie 
 Route::get('copy/index', [CopyController::class, 'index'])->name('copy.index')->middleware('auth');
+//rotta visualizzazione copia specifica
+Route::get('copy/reservation/selected/{copyId}', [CopyController::class, 'selectedCopy'])->name('reservation.selected')->middleware('auth');
+
 
 //rotta vista di prenotzzione
 Route::get('copy/reservation/{book}', [ReservationController::class, 'reservation'])->name('reservation.view')->middleware('auth');
