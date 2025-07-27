@@ -1,4 +1,4 @@
-<form class="md:max-w-5xl mx-auto mt-8 bg-white p-6 rounded-md shadow-md grid gap-6 grid-cols-1 md:grid-cols-2"
+<form class="md:max-w-5xl mx-5 md:mx-auto my-8 bg-white p-6 rounded-md shadow-md grid gap-6 grid-cols-1 md:grid-cols-2"
     wire:submit.prevent="store" enctype="multipart/form-data">
     @csrf
     <div>

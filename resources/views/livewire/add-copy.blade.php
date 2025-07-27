@@ -1,4 +1,4 @@
-<div class="max-w-xl mx-auto bg-white p-6 rounded shadow mt-8">
+<div class="max-w-xl mx-5 md:mx-auto bg-white p-6 rounded shadow my-8">
     <form wire:submit.prevent="store">
         {{-- Codice a barre --}}
         @php
@@ -53,7 +53,7 @@
         @enderror
 
         {{-- Submit --}}
-        <div class="text-right">
+        <div class="text-center">
             <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">
                 Salva copia
             </button>

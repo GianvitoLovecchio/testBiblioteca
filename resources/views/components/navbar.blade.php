@@ -85,10 +85,10 @@
                 <a href="{{ route('book.create') }}" class="block nav-link">Aggiungi libro</a>
                 <a href="{{ route('copy.add') }}" class="block nav-link">Carica copie</a>
                 <a href="{{ route('book.index') }}" class="block nav-link">Catalogo</a>
-                <a href="#" class="block nav-link">Visualizza prenotazioni</a>
+                <a href="{{ route('reservation.index') }}" class="block nav-link">Visualizza prenotazioni</a>
                 <a href="{{ route('user.index') }}" class="block nav-link">Elenco utenti</a>
                 <a href="{{ route('search')}}" class="block nav-link">Ricerca Testuale</a>
-                <a href="" class="block nav-link">Ricerca per filtri</a>
+                <a href="{{ route('copy.index')}}" class="block nav-link">Ricerca per filtri</a>
             @else
                 <a href="{{ route('book.index') }}" class="block nav-link">Catalogo</a>
                 <a href="#" class="block nav-link">Prenotazioni</a>
