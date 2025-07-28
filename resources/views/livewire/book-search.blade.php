@@ -11,7 +11,7 @@
             <p class="text-gray-500 my-5 ml-8">Trovati {{ $copies->total() }} libri per "{{ $search }}"</p>
             <div class="flex flex-wrap justify-center gap-4">
                 @foreach ($copies as $copy)
-                    <x-cardBook :book="$copy->book" :copy="$copy" />
+                    <x-cardCopy :book="$copy->book" :copy="$copy" />
                 @endforeach
             </div>
             <div class="m-8 flex justify-center space-x-4">

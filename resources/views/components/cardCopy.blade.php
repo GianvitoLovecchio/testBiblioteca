@@ -9,8 +9,8 @@
                             : 'text-green-600');
             @endphp
             <div
-                class="bg-white rounded shadow p-4 border-3 {{ $borderColor }} hover:shadow-lg transition duration-200">
-                <div class='flex justify-between '>
+                class="w-[375px] md:w-[400px] md:justify-between bg-white rounded shadow p-4 border-3 {{ $borderColor }} hover:shadow-lg transition duration-200">
+                <div class='flex justify-between w-full'>
                     <div>
                         <h3 class="font-bold text-lg text-gray-800">{{ $copy->book->title }}</h3>
                         <p class="text-sm text-gray-600">Barcode: {{ $copy->barcode }}</p>

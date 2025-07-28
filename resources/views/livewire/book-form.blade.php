@@ -39,9 +39,10 @@
     </div>
 
     <div>
-        <label for="published_at" class="block text-sm font-medium text-gray-700">Pubblicato il</label>
+        <label for="published_at" class="block text-sm font-medium text-gray-700">Pubblicato il *</label>
         <input id="published_at" type="date" wire:model="published_at" autofocus
-            class="h-10 border-2 ps-4 mt-1 block w-full border-gray-300 rounded-md focus:outline-none">
+        class="h-10 border-2 ps-4 mt-1 block w-full border-gray-300 rounded-md focus:outline-none">
+        <small class="text-xs text-gray-500">*Nel caso sappiate solo l'anno di pubblicazione, inserire il 1 gennaio come data.</small>
         @error('published_at')
             <span class="text-red-500 text-sm">{{ $message }}</span>
         @enderror
@@ -51,7 +52,7 @@
         <label for="category_id" class="block text-sm font-medium text-gray-700">Categoria</label>
         <select id="category_id" wire:model="category_id"
             class="h-10 border-2 ps-4 mt-1 block w-full border-gray-300 rounded-md focus:outline-none">
-            <option value="" disabled selected>-- Seleziona una categoria --</option>
+            <option value=""  selected>-- Seleziona una categoria --</option>
             @foreach ($categories as $category)
                 <option value="{{ $category->id }}">{{ $category->name }}</option>
             @endforeach

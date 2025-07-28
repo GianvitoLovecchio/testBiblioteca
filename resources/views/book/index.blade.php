@@ -14,4 +14,7 @@
             @endif
         @endforeach
     </div>
+    <div class="flex justify-center space-x-5 my-6">
+        {{ $books->links() }}
+    </div>
 </x-layout>

@@ -1,61 +1,29 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+Ho pensato di gestire tutta la logica del sito in questo modo:
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+- 1) funzioni UTENTE NORMALE e confronto con ADMIN:
+    - 1.1 il catalogo dei libri (titoli) mostra: 
+        - 1.1.1 per gli ADMIN mostra tutti i libri e i dati titolo, autore, isbn, descrizione e pubblicazione, con il bottone per vederne i dettagli;
+        - 1.1.2 per gli UTENTI NORMALI mostra solo i libri di cui c'è almeno una copia disponibile, oltre a tutte le stesse informazioni mostrate agli admin e in più c'è il bottone 'prenota copia', con cui si viene reindirizzati alla pagina per effettuare la prenotazione, in cui (in caso di presenza di più copie) automaticamente ci verrà proposta la copia con una condizione migliore.
+    - 1.2 il cataogo delle copie :
+        - 1.2.1 per gli ADMIN è accessibile attraverso la ricerca (testuale o per filtri [in cui è possibile filtrare per categoria, anno e disponibilità]) e mostra tutte le copie presenti in archivio, colorando i bordi di verde o rosso a seconda della disponibilità o meno di un libro e mostra inoltre, per i libri prenotati, nome e mail dell'utente che lo ha prenotato e quando lo ha prenotato (data e ora)
+        - 1.2.2 per gli UTENTI NORMALI il catalogo copie mostra solo le copie disponibili e permette di selezionare una specifica copia da prenotare, cliccando sull'apposito bottone si viene reindirizzati alla pagina di conferma della prenotazione della copia selezionata (e non generata automaticamente come prima)
 
-## About Laravel
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- 2) logica e funzioni ADMIN
+    - 2.1 Aggiungi libro - Da la possibilità di aggiungere un nuovo titolo e caricare l'immagine di copertina di questo, nel caso in cui l'immagine non venga caricata ne verrà inserita una di default;
+    - 2.2 Carica copie - Da qui sara possibile aggiungere una copia di uno dei libri presenti già nel catalogo, verrà fornito automaticamente un codice a barre non modificabile e sarà possibile indicare la condizione del libro e delle evenutali note da aggiungere in merito alla copia;
+    - 2.3 Catalogo - Come già detto mostra tutti i titoli presenti nel catalogo;
+    - 2.4 Prenotazioni - Mostra una tabella contente l'elenco di tutte le copie attualmente prenotate e per ogni copia viene specificato titolo, utente in possesso della copia, data e ora in cui la copia è stata prenotata, stato del libro, codice a barra della copia e le eventuali note
+    - 2.5 Utenti - Mostra una tabella in cui è possibile visualizzare tutti gli UTENTI NORMALI registrati nel portale e per ognuno di loro è possibile viusualizzare id, nome, email e copie prenotate
+    - 2.6 Gestione categorie - Qui è possibile visualizzare tutte le categorie presenti nella piattaforma e gestirle, modificandone il nome, eleminandole o aggiungendone di nuove.
+    - 2.7 Ricerca - i risultati dellaricerca sono organizzati in 4 card per pagina, per rendere l'esperienza dell'utente più comoda.
+        - 2.7.1 Ricerca testuale - Digitando una parola, si ha modo di cercare tra le copie fra titolo, autore, isbn o descrizione, i risultati sono delle card di cui ho parlato nei punti 1.1 e 1.2
+        - 2.7.2 Ricerca per filtri - E' possibile cercare una copia specifica filtrando per anno, categoria e disponibilità (i filtri si intersecano, quindi è possibile cercare una copia di uno specifico anno (che si può scegliere tra i vari anni di publicazione dei titoli in catalogo, quindi se non c'è nessun libro publicato nel 1999 l'anno 1999 non sarà tra le possibilità),di nua specifica categoria che sia disponibile)
+    
+- 3) Seeder - Ho creato, con lo scopo di testare la piattaforma, diversi seeder:
+    - 3.1 - Singoli seeder:
+        - 3.1.1 - AdminSeeder - Crea un utente admin con mail admin@admin.com e password 'password'
+        - 3.1.2 - UserSeeder - Crea 3 utenti con mail mariorossi@mail.com, giovannibianchi@mail.com e lucaverdi@mail.com, tutti e 3 con password 'password'
+        - 3.1.3 - CategorySeeder - Crea 12 categorie
+        - 3.1.4 - BookSeeder - Crea 10 libri, registrando 2 copie totali per ogni libro e collegando ogni libro ad una categoria
+        - 3.1.5 - CopySeeder - Crea 20 copie, 2 per ogni libro in cui una è prenotata e l'altra è disponibile. Allo stesso tempo per ogni copia prenotata crea anche una prenotazione collegata randomicamente ad uno dei 3 utenti generati dal UserSeeder
+    - 3.2 - DatabaseSeeder - Contiene il comando per lanciare tutti i singoli seeder nel corretto ordine che garantisca il corretto funzionamento della piattaforma (ovvero: AminSeeder, UserSeeder, CategorySeeder, BookSeeder, CopySeeder)

@@ -54,7 +54,7 @@
 
         {{-- Submit --}}
         <div class="text-center">
-            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">
+            <button type="submit" class="cursor-pointer bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">
                 Salva copia
             </button>
         </div>

@@ -36,6 +36,7 @@ class BookForm extends Component
     #[Validate('max:500', message: 'La descrizione non può superare i 500 caratteri')]
     public $description;
 
+    #[Validate('nullable')]
     #[Validate('image', message: 'Il file deve essere un\'immagine')]
     #[Validate('max:2048', message: 'L\'immagine non può superare 2MB')]
     public $cover_image;
@@ -57,8 +58,9 @@ class BookForm extends Component
             $filename = 'cover_image_' . Str::slug($this->title) . '.' . $this->cover_image->getClientOriginalExtension();
             $path = $this->cover_image->storeAs(Str::slug($this->title), $filename, 'public');
         } else {
-            $path = null;
+            $path = 'default.jpg';
         }
+
         $this->book = Book::create([
             'title' => $this->title,
             'author' => $this->author,

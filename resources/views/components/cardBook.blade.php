@@ -1,8 +1,8 @@
 <div
     class="w-[300px] mx-auto md:justify-between bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-    <img src="{{ asset('storage/' . $book->cover_image) }}" alt="Copertina di {{ $book->title }}"
-        class="w-[200px] h-[250px] mx-auto mt-5 object-cover">
-    <span class="inline-block bg-blue-100 text-blue-800 my-3 ms-4 text-xs px-2 py-1 rounded">
+    <img src="{{ asset('storage/' . $book->cover_image) ? asset('storage/' . $book->cover_image) : asset('storage/default.jpg') }}" alt="Copertina di {{ $book->title }}"
+        class="w-[200px] h-[250px] mx-auto md:py-3 mt-5 object-cover">
+    <span class="inline-block bg-blue-100 text-blue-800 my-3 ms-4 text-xs px-2  py-1 rounded">
         {{ $book->category->name }}
     </span>
     <div class="px-4 pb-4 space-y-2">

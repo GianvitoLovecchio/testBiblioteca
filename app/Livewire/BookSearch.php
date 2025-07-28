@@ -29,7 +29,7 @@ class BookSearch extends Component
                     ->orWhere('description', 'like', "%{$this->search}%")
                     ->orWhere('isbn', 'like', "%{$this->search}%");
             })
-            ->paginate(4);
+            ->paginate(6);
 
         return view('livewire.book-search', [
             'copies' => $copies,

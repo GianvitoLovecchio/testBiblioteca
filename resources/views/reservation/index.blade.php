@@ -2,7 +2,7 @@
     <h1 class="text-4xl text-center my-10 font-bold text-gray-800">Lista prenotazioni</h1>
 
     <div class="overflow-x-auto px-4">
-        <table class="min-w-full bg-white rounded-lg shadow-md text-sm sm:text-base">
+        <table class="min-w-full bg-white rounded-lg shadow-md text-sm sm:text-base mb-8">
             <thead>
                 <tr class="bg-gray-100 text-gray-700 text-left uppercase tracking-wider">
                     <th class="px-4 sm:px-6 py-3">Libro</th>
