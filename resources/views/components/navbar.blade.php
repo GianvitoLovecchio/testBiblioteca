@@ -51,7 +51,7 @@
             <!-- Right Side -->
             <div class="hidden md:flex items-center gap-4">
                 @auth
-                    <a href="{{ route('user.profile') }}" class="text-gray-700 hover:text-gray-900">
+                    <a class="text-gray-700 hover:text-gray-900">
                         Ciao, <span class="font-bold">{{ Auth::user()->name }}</span>
                     </a>
                     <form method="POST" action="{{ route('logout') }}">
