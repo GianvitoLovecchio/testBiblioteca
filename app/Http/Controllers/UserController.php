@@ -17,10 +17,6 @@ class UserController extends Controller
         return view('auth.register');
     }
 
-    public function profile()
-    {
-        return view('auth.profile');
-    }
     public function index()
     {
         $users = User::all()->where('is_admin', false);

@@ -27,3 +27,24 @@ Ho pensato di gestire tutta la logica del sito in questo modo:
         - 3.1.4 - BookSeeder - Crea 10 libri, registrando 2 copie totali per ogni libro e collegando ogni libro ad una categoria
         - 3.1.5 - CopySeeder - Crea 20 copie, 2 per ogni libro in cui una è prenotata e l'altra è disponibile. Allo stesso tempo per ogni copia prenotata crea anche una prenotazione collegata randomicamente ad uno dei 3 utenti generati dal UserSeeder
     - 3.2 - DatabaseSeeder - Contiene il comando per lanciare tutti i singoli seeder nel corretto ordine che garantisca il corretto funzionamento della piattaforma (ovvero: AminSeeder, UserSeeder, CategorySeeder, BookSeeder, CopySeeder)
+
+    - 4) Istruzione per il corretto avvio del progetto:
+    - 4.1 - clonare il progetto in locale: 'git clone https://github.com/GianvitoLovecchio/testBiblioteca'
+    - entrare nella cartella del progetto: 'cd testBiblioteca'
+    - 4.2 creare un db in locale chiamato 'laravel'
+    - 4.3 copiare il file di configurazione .env.example in .env: 'cp .env.example .env'
+    - 4.4 impostare la parte del .env in questo modo: 
+        DB_CONNECTION=mysql
+        DB_HOST=127.0.0.1
+        DB_PORT=3306
+        DB_DATABASE=laravel
+        DB_USERNAME= (username personale)
+        DB_PASSWORD= (password personale)
+    - 4.5 installare le dipendenze js: 'npm install'
+    - 4.6 installare le dipendenze php: 'composer i'
+    - 4.7 generare la chiave di encriptazione: 'php artisan key:gen' 
+    - 4.8 creare il link alla cartella storage 'php artisan storage:link'
+    - 4.9 lanciare la migrazione per la greazione delle tabelle: 'php artisan migrate'
+    - 4.10 lanciare i seed: 'php artisan db:seed'
+    - 4.11 avviare vite: 'npm run dev'
+    - 4.12 lanciare il server locale di php: 'php artisan serve'
